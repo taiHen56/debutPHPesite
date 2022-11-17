@@ -1,0 +1,17 @@
+{
+    "name": "pascal/test4-1",
+    "require": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pascal\\Test41\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Casinni",
+            "email": "pascal@lamy.mobi"
+        }
+    ]
+}
