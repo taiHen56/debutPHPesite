@@ -4,8 +4,10 @@
  * @author lamy pascal
  *
  */
+	include_once "Adresse.php";
 
 class Personne{
+
 
 	/**id de la personne*/
 	private  int $id;

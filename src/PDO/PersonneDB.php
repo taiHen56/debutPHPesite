@@ -2,8 +2,10 @@
 
 use function PHPUnit\Framework\equalTo;
 
-require_once "src/Constantes.php";
-require_once "src/metier/Personne.php";
+require_once "Constantes.php";
+require_once "metier/Personne.php";
+require_once "metier/Adresse.php";
+
 require_once "AdresseDB.php";
 /**
  * 
@@ -92,6 +94,7 @@ class PersonneDB
 	 * @param $nom
 	 */
 	public function selectionId($id){
+
 		$query = 'SELECT id,nom,prenom,datenaissance,telephone,email,login,pwd FROM personne  WHERE id= :id ';
 		$q = $this->db->prepare($query);
 
@@ -115,6 +118,33 @@ class PersonneDB
 		//retour du resultat
 		return $res;
 	}
+
+	public function selectionLogin($log){
+		
+		$query = 'SELECT id_personne,nom,prenom,datenaissance,telephone,email,login,pwd FROM personne  WHERE login= :login ';
+		$q = $this->db->prepare($query);
+
+	
+		$q->bindValue(':login',$log);
+	
+		$q->execute();
+		
+		$arrAll = $q->fetch(PDO::FETCH_ASSOC);
+		//si pas de personne , on leve une exception
+
+		if(empty($arrAll)){
+			throw new Exception(Constantes::EXCEPTION_DB_PERSONNE); 
+		
+		}
+		
+		$q->closeCursor();
+		$q = NULL;
+		//conversion du resultat de la requete en objet personne
+		$res= $this->convertPdoPers($arrAll);
+		//retour du resultat
+		return $res;
+	}
+
 	/**
 	 * 
 	 * Fonction qui retourne toutes les personnes
@@ -152,13 +182,14 @@ class PersonneDB
 	}
 	//conversion du pdo en objet
 	$obj=(object)$pdoPers;
-	//print_r($obj);
 	//conversion de l'objet en objet personne
 	//conversion date naissance en datetime
-	$dt =new  DateTime($obj->datenaissance);
-	$pers=new Personne($obj->nom,$obj->prenom,$dt,$obj->telephone, $obj->email,$obj->login,$obj->pwd,$obj->adresse);
+	$dt =date_create ($obj->datenaissance);
+	$adresse=new Adresse(99,32, "rue Jean moulin", 44000, "Nantes",4);
+	
+	$pers=new Personne($obj->nom,$obj->prenom,$dt,$obj->telephone, $obj->email,$obj->login,$obj->pwd,$adresse);
 	//affectation de l'id pers
-	$pers->setId($obj->id);
+	$pers->setId($obj->id_personne);
 	 	return $pers;	 
 	}
 	/**

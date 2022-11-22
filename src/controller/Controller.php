@@ -8,7 +8,7 @@ class Controller {
 	{
 // Active tout les warning. Utile en phase de développement
 	// En phase de production, remplacer E_ALL par 0
-error_reporting(0);
+error_reporting(E_ALL);
 
 //appel de la vue authentification
 

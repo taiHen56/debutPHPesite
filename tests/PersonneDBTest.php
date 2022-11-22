@@ -2,9 +2,9 @@
 
 use PHPUnit\Framework\TestCase;
 
-require_once "src/Constantes.php";
-require_once "src/metier/Personne.php";
-require_once "src/PDO/PersonneDB.php";
+require_once "Constantes.php";
+require_once "metier/Personne.php";
+require_once "PDO/PersonneDB.php";
 
 class PersonneDBTest extends TestCase {
 

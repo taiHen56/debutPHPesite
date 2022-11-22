@@ -1,6 +1,6 @@
 <?php
-require_once "src/Constantes.php";
-require_once "src/metier/Adresse.php";
+require_once "Constantes.php";
+require_once "metier/Adresse.php";
 
 /**
  *
