@@ -42,7 +42,11 @@ class PersonneDB
 		$q->bindValue(':login',$p->getLogin());
 		$q->bindValue(':pwd',$p->getPwd());
 
-		$this->adrDB->ajout($p->getAdresse(),$this->db->lastInsertID());
+		if(!is_null(($p->getAdresse()))){
+			$this->adrDB->ajout($p->getAdresse(),$this->db->lastInsertID());
+		}
+
+		
 		$q->execute();	
 		$q->closeCursor();
 		$q = NULL;

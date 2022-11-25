@@ -58,7 +58,7 @@ class PersonneDBTest extends TestCase {
         $this->personne = new PersonneDB($this->pdodb);
         
         $dt = new DateTime('1950-01-12');
-        $a = new Adresse(99,32, "rue Jean moulin", 44000, "Nantes",4);
+        //$a = new Adresse(99,32, "rue Jean moulin", 44000, "Nantes",4);
         $p = new Personne("Hollande", "Francois",$dt,"0656463524", "fhollande@free.fr", "fhollande", "monpwd",$a);
         $p->setPwd("monpwd");
         //insertion en bdd

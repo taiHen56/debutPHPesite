@@ -24,7 +24,8 @@ class verifController {
         $db = new PDO($strConnection, Constantes::USER, Constantes::PASSWORD, $arrExtraParam); //Ligne 3; Instancie la connexion
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-		$accesPersBDD=new PersonneDB($db);
+		$accesPersBDD = new PersonneDB($db);
+		$accesAdresseBDD = new AdresseDB($db);
 		$auth=$accesPersBDD->authentification($login, $pwd);
 		if($auth == false){
 			echo "erreur de login ou de mot de passe!!";
@@ -49,6 +50,19 @@ class verifController {
 				$_SESSION['email'] = $obj->getEmail() ;
 				$_SESSION['login'] = $login ;
 				$_SESSION['mdp'] = $pwd ;
+
+				try{ 
+
+					$adr = $accesAdresseBDD->selectAdresseIdPers($idpers);
+
+				}catch(Exception $e){
+					$adr = new Adresse(9999, 9999, "", 9999, "", 9999);
+				}
+
+				$_SESSION['numAdresse'] = $adr->getNumero();
+				$_SESSION['rueAdresse'] = $adr->getRue();
+				$_SESSION['codeAdresse'] = $adr->getCodePostal();
+				$_SESSION['villeAdresse'] = $adr->getVille();
 				
 		//ok renvoyé au javascript pour rediriger vers accueil.php
 		echo "ok-$token";

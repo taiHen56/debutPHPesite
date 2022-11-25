@@ -6,7 +6,7 @@ class monCompteController
     {
         
         session_start();
-        error_reporting(0);
+        error_reporting(E_ALL);
         require_once "controller/Controller.php";
         require_once "vue/monCompte.php";
 

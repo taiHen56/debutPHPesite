@@ -28,7 +28,7 @@ function show_hide_password(target) {
       $(".verif_form").submit(function(){  
 
 
-  $.post($(this).attr("action"), $(this).serialize(), function(data){
+      $.post($(this).attr("action"), $(this).serialize(), function(data){
 
 	  var $e = $("#messagee");
     // traitement  exécuter une fois le formulaire posté.
