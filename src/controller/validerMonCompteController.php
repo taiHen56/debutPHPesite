@@ -31,8 +31,10 @@ class validerMonCompteController {
 		$code = $_POST['code'] ?? $_SESSION['codeAdresse'];
 		$ville = $_POST['ville'] ?? $_SESSION['villeAdresse'];
 
-		$adresse = new Adresse($idAdre,$num,$rue)
-		$personne = new Personne($nom, $prenom, $date, $tel, $email, $login, $pwd);
+		$adresse = new Adresse($idAdre, $num, $rue, $code, $ville, $idPers);
+		$personne = new Personne($nom, $prenom, $date, $tel, $email, $log, $pwd, $adresse);
+
+		
 
 
 
