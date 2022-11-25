@@ -23,7 +23,7 @@
     <h1>Video.js Example Embed</h1>
 
     <video-js id="my_video_1" class="vjs-default-skin" controls preload="auto" width="640" height="268">
-      <source src="https://www.youtube.com/watch?v=nA9UZF-SZoQ" type="application/x-mpegURL" />
+      <source src="https://rakuten-actionmovies-7-fr.plex.wurl.tv/playlist.m3u8" type="application/x-mpegURL" />
     </video-js>
 
     <!-- <iframe width="480" height="270" src="https://ustream.tv/embed/17074538" scrolling="no" allowfullscreen webkitallowfullscreen frameborder="0" style="border: 0 none transparent"></iframe> -->

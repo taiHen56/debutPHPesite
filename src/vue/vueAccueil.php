@@ -1,5 +1,8 @@
 <?php
 include_once "vue/Vue.php";
+require_once "metier/Personne.php";
+require_once "PDO/PersonneDB.php";
+
 class vueAccueil extends Vue {
 	
 function affiche(){
@@ -7,9 +10,12 @@ function affiche(){
 include "header.html";
 include "menu.php";
 
+
 echo '<div class="covered-img">';
 echo ' <div class="container">';
-echo '<p class="lead"><p>Bienvenue '.$_SESSION['nom'].'!</p>';
+echo '<p>Ca marche?</p>';
+echo '<p>Bienvenue '.$_SESSION['nom'].'!</p>';
+
 echo "<p class='font-italic'> Cette application web va permettre de nous familiariser avec :<p>";
 echo '<ul class=\'font-italic\'>';
 echo ' <li><a href="https://openclassrooms.com/fr/courses/4670706-adoptez-une-architecture-mvc-en-php/4678736-comment-fonctionne-une-architecture-mvc" target="_blank">l \'architecture MVC (Modèle Vue Controller)</a></li>';

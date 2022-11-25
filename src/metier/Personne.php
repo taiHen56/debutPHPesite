@@ -30,14 +30,14 @@ class Personne{
 	private ?Adresse $adresse;
 
 
-	public function __construct(string $n,string $p,DateTime $d,$t,$e,$l,$pw,$adresse){
+	public function __construct(string $n,string $p,DateTime $d,$telephone,$email,$login,$pw,$adresse){
 
 		$this->nom=$n;
 		$this->prenom=$p;
         $this->datenaiss=$d;
-        $this->telephone=$t;
-		$this->email=$e;
-        $this->login=$l;
+        $this->telephone=$telephone;
+		$this->email=$email;
+        $this->login=$login;
         $this->pwd=$pw;
 
 		$this -> $adresse = $adresse;

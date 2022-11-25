@@ -40,8 +40,16 @@ class verifController {
 				$_SESSION['token'] = $token;
 				//heure de creation du token en timestamp
 				$_SESSION['token_time'] = time();
-				$_SESSION['nom'] = $nom;
+
 				$_SESSION['id'] = $idpers;
+				$_SESSION['nom'] = $obj->getNom();
+				$_SESSION['prenom'] = $obj->getPrenom() ;
+				$_SESSION['dateNaissance'] = $obj->getDatenaissance() ;
+				$_SESSION['tel'] = $obj->getTelephone() ;
+				$_SESSION['email'] = $obj->getEmail() ;
+				$_SESSION['login'] = $login ;
+				$_SESSION['mdp'] = $pwd ;
+				
 		//ok renvoyé au javascript pour rediriger vers accueil.php
 		echo "ok-$token";
 		}
