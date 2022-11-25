@@ -34,8 +34,15 @@ class validerMonCompteController {
 		$adresse = new Adresse($idAdre, $num, $rue, $code, $ville, $idPers);
 		$personne = new Personne($nom, $prenom, $date, $tel, $email, $log, $pwd, $adresse);
 
-		
+		$strConnection = Constantes::TYPE.':host='.Constantes::HOST.';dbname='.Constantes::BASE; 
+        $arrExtraParam= array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8");
+        $db = new PDO($strConnection, Constantes::USER, Constantes::PASSWORD, $arrExtraParam); //Ligne 3; Instancie la connexion
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+		$accesPersBDD = new PersonneDB($db);
+		$accesAdresseBDD = new AdresseDB($db);
+
+		
 
 
 	}
