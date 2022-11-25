@@ -58,7 +58,7 @@ class verifController {
 				}catch(Exception $e){
 					$adr = new Adresse(9999, 9999, "", 9999, "", 9999);
 				}
-
+				$_SESSION['idAdresse'] = $adr->getId();
 				$_SESSION['numAdresse'] = $adr->getNumero();
 				$_SESSION['rueAdresse'] = $adr->getRue();
 				$_SESSION['codeAdresse'] = $adr->getCodePostal();

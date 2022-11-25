@@ -37,11 +37,26 @@ $(document).ready(function() {
 	 
      $(".compteForm").submit(function(){
 
+		$.post($(this).attr("action"), $(this).serialize(), function(data){
 
-     });
+			var $e = $("#messagee");
+
+			var ok=data.substr(0,2);
+    		var token=data.substr(3,data.length);
+    		if(ok=="ok"){
+      			//$(location).attr('href',"index.php?action=accueil&id="+token);
+				$e.text(data).show();
+				$("#monForm").css("visibility", "hidden");
+    		}
+   			else
+  	 			$e.text(data).show();
+  
+    		});
+			
+  		return false;
 
 
-
+});
 });
 
 </script>
